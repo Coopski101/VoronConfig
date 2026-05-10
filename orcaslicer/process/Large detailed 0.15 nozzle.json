@@ -1,0 +1,21 @@
+{
+    "filename_format": "{input_filename_base}_{filament_type[initial_tool]}_E{nozzle_temperature[initial_tool]}_F{filament_flow_ratio}_B-{curr_bed_type}.gcode",
+    "from": "User",
+    "inherits": "0.20mm Standard @MyKlipper",
+    "initial_layer_print_height": "0.12",
+    "initial_layer_speed": "25",
+    "layer_height": "0.08",
+    "name": "Large detailed 0.15 nozzle",
+    "print_extruder_id": [
+        "1"
+    ],
+    "print_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "print_settings_id": "Large detailed 0.15 nozzle",
+    "seam_position": "nearest",
+    "top_shell_layers": "6",
+    "version": "2.3.2.60",
+    "wall_loops": "5",
+    "wall_sequence": "inner-outer-inner wall"
+}

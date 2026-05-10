@@ -1,0 +1,16 @@
+{
+    "filename_format": "{input_filename_base}_{filament_type[initial_tool]}_E{nozzle_temperature[initial_tool]}_F{filament_flow_ratio}_B-{curr_bed_type}.gcode",
+    "from": "User",
+    "inherits": "0.20mm Standard @MyKlipper",
+    "name": "0.20mm Standard @MyKlipper - Copy",
+    "print_extruder_id": [
+        "1"
+    ],
+    "print_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "print_settings_id": "0.20mm Standard @MyKlipper - Copy",
+    "seam_position": "nearest",
+    "version": "2.3.2.60",
+    "wall_sequence": "inner-outer-inner wall"
+}
