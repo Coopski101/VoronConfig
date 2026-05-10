@@ -1,0 +1,52 @@
+{
+    "change_filament_gcode": "M600",
+    "extruder_clearance_height_to_rod": "40",
+    "extruder_clearance_radius": "50",
+    "from": "User",
+    "inherits": "MyKlipper 0.4 nozzle",
+    "machine_max_acceleration_x": [
+        "30000",
+        "20000"
+    ],
+    "machine_max_acceleration_y": [
+        "30000",
+        "20000"
+    ],
+    "machine_max_acceleration_z": [
+        "1000",
+        "200"
+    ],
+    "machine_max_speed_x": [
+        "1000",
+        "200"
+    ],
+    "machine_max_speed_y": [
+        "1000",
+        "200"
+    ],
+    "machine_max_speed_z": [
+        "15",
+        "12"
+    ],
+    "machine_start_gcode": "PRINT_START BED=[bed_temperature_initial_layer_single] EXTRUDER=[nozzle_temperature_initial_layer] NOZZLE=[nozzle_diameter]\n",
+    "name": "Voron 0.15",
+    "nozzle_diameter": [
+        "0.15"
+    ],
+    "printable_area": [
+        "0x0",
+        "350x0",
+        "350x350",
+        "0x350"
+    ],
+    "printable_height": "320",
+    "printer_extruder_id": [
+        "1"
+    ],
+    "printer_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "printer_settings_id": "Voron 0.15",
+    "support_multi_bed_types": "1",
+    "version": "2.3.2.60"
+}
