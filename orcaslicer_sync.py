@@ -15,6 +15,9 @@ Commands:
     pull-process                  Copy all process profiles from OrcaSlicer into repo.
     push-process                  Copy all process profiles from repo into OrcaSlicer.
 
+    sync-filament --filament NAME --nozzle 0.4
+                              Sync filament-level settings from one nozzle variant to all others.
+
     pull-filament                 Copy all filament profiles from OrcaSlicer into repo.
     push-filament                 Copy all filament profiles from repo into OrcaSlicer.
 
@@ -25,6 +28,7 @@ Usage:
     python orcaslicer_sync.py push-machine
     python orcaslicer_sync.py pull-process
     python orcaslicer_sync.py push-process
+    python orcaslicer_sync.py sync-filament --filament "SUNLU PLA+ 2.0" --nozzle 0.4
     python orcaslicer_sync.py pull-filament
     python orcaslicer_sync.py push-filament
     python orcaslicer_sync.py sync-process --source "0.20mm Standard @MyKlipper"
@@ -53,6 +57,21 @@ FILAMENT_ORCA  = ORCA_USER / "filament"
 
 PROCESS_LEVEL_FIELDS = {
     "filename_format",
+}
+
+FILAMENT_LEVEL_FIELDS = {
+    "inherits",
+    "from",
+    "version",
+    "filament_extruder_variant",
+    "filament_cost",
+    "fan_max_speed",
+    "overhang_fan_speed",
+    "eng_plate_temp_initial_layer",
+    "hot_plate_temp_initial_layer",
+    "textured_plate_temp_initial_layer",
+    "filament_flow_ratio",
+    "enable_pressure_advance",
 }
 
 PRINTER_LEVEL_FIELDS = {
@@ -212,6 +231,57 @@ def cmd_sync_process(source_name: str, dry_run: bool) -> None:
     else:
         print("\nSync complete.")
 
+
+def cmd_sync_filament(filament: str, nozzle: str, dry_run: bool) -> None:
+    source_name = f"{filament} {nozzle}.json"
+    source_path = FILAMENT_ORCA / source_name
+    if not source_path.exists():
+        print(f"ERROR: filament profile not found in OrcaSlicer: {source_name}")
+        print("Available profiles:")
+        for p in sorted(FILAMENT_ORCA.glob("*.json")):
+            print(f"  {p.stem}")
+        return
+
+    # Find all nozzle variants of this filament (same base name, different nozzle suffix)
+    targets = [
+        p for p in sorted(FILAMENT_ORCA.glob(f"{filament} *.json"))
+        if p.resolve() != source_path.resolve()
+    ]
+
+    if not targets:
+        print(f"No other variants of '{filament}' found in OrcaSlicer.")
+        return
+
+    source = load_json(source_path)
+    filament_values = {k: v for k, v in source.items() if k in FILAMENT_LEVEL_FIELDS}
+
+    print(f"Source:  {source_path.name}")
+    print(f"Targets: {[t.name for t in targets]}")
+    print()
+
+    for target_path in targets:
+        target  = load_json(target_path)
+        changes = {}
+
+        for field, value in filament_values.items():
+            if field not in target or target[field] != value:
+                changes[field] = (target.get(field, "(missing)"), value)
+                target[field]  = value
+
+        if changes:
+            print(f"  {target_path.name}:")
+            for field, (old, new) in changes.items():
+                print(f"    {field}: {old!r} -> {new!r}")
+            if not dry_run:
+                save_json(target_path, target)
+        else:
+            print(f"  {target_path.name}: no changes")
+
+    if dry_run:
+        print("\nDry run — no files written.")
+    else:
+        print("\nSync complete.")
+
 def cmd_pull_machine(dry_run: bool) -> None:
     print(f"Pulling from: {MACHINE_ORCA}")
     print(f"          to: {MACHINE_REPO}")
@@ -297,6 +367,10 @@ def main():
     sub.add_parser("push-machine",  help="Copy Voron machine profiles from repo into OrcaSlicer.")
     sub.add_parser("pull-process",  help="Copy process profiles from OrcaSlicer into repo.")
     sub.add_parser("push-process",  help="Copy process profiles from repo into OrcaSlicer.")
+    p_sync_fil = sub.add_parser("sync-filament", help="Sync filament settings across nozzle variants.")
+    p_sync_fil.add_argument("--filament", required=True, help="Base filament name e.g. 'SUNLU PLA+ 2.0'")
+    p_sync_fil.add_argument("--nozzle",   required=True, help="Source nozzle size e.g. 0.4")
+
     sub.add_parser("pull-filament", help="Copy filament profiles from OrcaSlicer into repo.")
     sub.add_parser("push-filament", help="Copy filament profiles from repo into OrcaSlicer.")
 
@@ -314,6 +388,8 @@ def main():
         cmd_pull_process(args.dry_run)
     elif args.command == "push-process":
         cmd_push_process(args.dry_run)
+    elif args.command == "sync-filament":
+        cmd_sync_filament(args.filament, args.nozzle, args.dry_run)
     elif args.command == "pull-filament":
         cmd_pull_filament(args.dry_run)
     elif args.command == "push-filament":
