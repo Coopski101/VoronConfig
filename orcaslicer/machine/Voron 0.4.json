@@ -28,7 +28,7 @@
         "15",
         "12"
     ],
-    "machine_start_gcode": "PRINT_START BED=[bed_temperature_initial_layer_single] EXTRUDER=[nozzle_temperature_initial_layer] NOZZLE=[nozzle_diameter] BED_TYPE=[curr_bed_type]",
+    "machine_start_gcode": "PRINT_START BED=[bed_temperature_initial_layer_single] EXTRUDER=[nozzle_temperature_initial_layer] NOZZLE=[nozzle_diameter] BED_TYPE=\"[curr_bed_type]\"",
     "name": "Voron 0.4",
     "printable_area": [
         "0x0",
