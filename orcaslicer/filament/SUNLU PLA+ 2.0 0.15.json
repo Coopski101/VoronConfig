@@ -18,11 +18,11 @@
         "0.8"
     ],
     "filament_settings_id": [
-        "SUNLU PLA+ 2.0 @System - 0.15 nozzle"
+        "SUNLU PLA+ 2.0 0.15"
     ],
     "from": "User",
     "inherits": "SUNLU PLA+ 2.0 @System",
-    "name": "SUNLU PLA+ 2.0 @System - 0.15 nozzle",
+    "name": "SUNLU PLA+ 2.0 0.15",
     "pressure_advance": [
         "0.04"
     ],

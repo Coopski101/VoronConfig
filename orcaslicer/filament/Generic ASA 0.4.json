@@ -15,14 +15,14 @@
         "Direct Drive Standard"
     ],
     "filament_settings_id": [
-        "Generic ASA @System - Copy"
+        "Generic ASA 0.4"
     ],
     "from": "User",
     "hot_plate_temp_initial_layer": [
         "100"
     ],
     "inherits": "Generic ASA @System",
-    "name": "Generic ASA @System - Copy",
+    "name": "Generic ASA 0.4",
     "overhang_fan_speed": [
         "60"
     ],

@@ -1,0 +1,18 @@
+{
+    "compatible_printers": [
+        "MyKlipper 0.4 nozzle"
+    ],
+    "filament_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "filament_flow_ratio": [
+        "0.95"
+    ],
+    "filament_settings_id": [
+        "SUNLU PLA+ 2.0 0.4"
+    ],
+    "from": "User",
+    "inherits": "SUNLU PLA+ 2.0 @System",
+    "name": "SUNLU PLA+ 2.0 0.4",
+    "version": "2.3.2.60"
+}
