@@ -1,0 +1,36 @@
+{
+    "compatible_printers": [
+        "Voron 0.25"
+    ],
+    "eng_plate_temp_initial_layer": [
+        "100"
+    ],
+    "fan_max_speed": [
+        "40"
+    ],
+    "filament_cost": [
+        "29"
+    ],
+    "filament_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "filament_max_volumetric_speed": [
+        "0.8"
+    ],
+    "filament_settings_id": [
+        "Generic ASA 0.25"
+    ],
+    "from": "User",
+    "hot_plate_temp_initial_layer": [
+        "100"
+    ],
+    "inherits": "Generic ASA @System",
+    "name": "Generic ASA 0.25",
+    "overhang_fan_speed": [
+        "60"
+    ],
+    "textured_plate_temp_initial_layer": [
+        "100"
+    ],
+    "version": "2.3.2.60"
+}

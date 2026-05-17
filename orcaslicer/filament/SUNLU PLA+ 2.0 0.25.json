@@ -1,0 +1,33 @@
+{
+    "compatible_printers": [
+        "Voron 0.25"
+    ],
+    "enable_pressure_advance": [
+        "1"
+    ],
+    "filament_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "filament_flow_ratio": [
+        "0.94"
+    ],
+    "filament_max_volumetric_speed": [
+        "4"
+    ],
+    "filament_settings_id": [
+        "SUNLU PLA+ 2.0 0.25"
+    ],
+    "from": "User",
+    "inherits": "SUNLU PLA+ 2.0 @System",
+    "name": "SUNLU PLA+ 2.0 0.25",
+    "nozzle_temperature": [
+        "190"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "190"
+    ],
+    "pressure_advance": [
+        "0.1"
+    ],
+    "version": "2.3.2.60"
+}
