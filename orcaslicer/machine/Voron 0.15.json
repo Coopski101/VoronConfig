@@ -29,6 +29,12 @@
         "12"
     ],
     "machine_start_gcode": "PRINT_START BED=[bed_temperature_initial_layer_single] EXTRUDER=[nozzle_temperature_initial_layer] NOZZLE=[nozzle_diameter] BED_TYPE=\"[curr_bed_type]\"",
+    "max_layer_height": [
+        "0.12"
+    ],
+    "min_layer_height": [
+        "0.04"
+    ],
     "name": "Voron 0.15",
     "nozzle_diameter": [
         "0.15"
@@ -47,6 +53,9 @@
         "Direct Drive Standard"
     ],
     "printer_settings_id": "Voron 0.15",
+    "retraction_length": [
+        "0.5"
+    ],
     "support_multi_bed_types": "1",
     "version": "2.3.2.60"
 }

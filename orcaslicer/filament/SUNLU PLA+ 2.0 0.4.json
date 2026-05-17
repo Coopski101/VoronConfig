@@ -2,11 +2,14 @@
     "compatible_printers": [
         "MyKlipper 0.4 nozzle"
     ],
+    "enable_pressure_advance": [
+        "1"
+    ],
     "filament_extruder_variant": [
         "Direct Drive Standard"
     ],
     "filament_flow_ratio": [
-        "0.95"
+        "0.92"
     ],
     "filament_settings_id": [
         "SUNLU PLA+ 2.0 0.4"
@@ -14,5 +17,14 @@
     "from": "User",
     "inherits": "SUNLU PLA+ 2.0 @System",
     "name": "SUNLU PLA+ 2.0 0.4",
+    "nozzle_temperature": [
+        "190"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "190"
+    ],
+    "pressure_advance": [
+        "0.035"
+    ],
     "version": "2.3.2.60"
 }
