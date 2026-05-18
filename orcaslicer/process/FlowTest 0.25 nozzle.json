@@ -1,20 +1,22 @@
 {
+    "bottom_shell_layers": "1",
     "enable_support": "1",
     "filename_format": "{input_filename_base}_{filament_type[initial_tool]}_N{nozzle_diameter}_E{nozzle_temperature[initial_tool]}_F{filament_flow_ratio}_B-{curr_bed_type}.gcode",
     "from": "User",
     "inherits": "0.20mm Standard @MyKlipper",
-    "initial_layer_print_height": "0.12",
+    "initial_layer_print_height": "0.18",
     "initial_layer_speed": "25",
-    "layer_height": "0.08",
-    "name": "Large detailed 0.15 nozzle",
+    "layer_height": "0.1",
+    "name": "FlowTest 0.25 nozzle",
     "print_extruder_id": [
         "1"
     ],
     "print_extruder_variant": [
         "Direct Drive Standard"
     ],
-    "print_settings_id": "Large detailed 0.15 nozzle",
+    "print_settings_id": "FlowTest 0.25 nozzle",
     "seam_position": "nearest",
+    "sparse_infill_density": "10%",
     "support_bottom_interface_spacing": "0.2",
     "support_bottom_z_distance": "0.08",
     "support_interface_spacing": "0.2",
@@ -22,7 +24,8 @@
     "support_threshold_angle": "55",
     "support_top_z_distance": "0.08",
     "support_type": "tree(auto)",
-    "top_shell_layers": "6",
+    "top_shell_layers": "10",
+    "top_surface_line_width": "100%",
     "version": "2.3.2.60",
-    "wall_loops": "7"
+    "wall_loops": "4"
 }

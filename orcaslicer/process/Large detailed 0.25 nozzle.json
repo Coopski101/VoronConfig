@@ -1,0 +1,33 @@
+{
+    "enable_support": "1",
+    "filename_format": "{input_filename_base}_{filament_type[initial_tool]}_N{nozzle_diameter}_E{nozzle_temperature[initial_tool]}_F{filament_flow_ratio}_B-{curr_bed_type}.gcode",
+    "from": "User",
+    "inherits": "0.20mm Standard @MyKlipper",
+    "initial_layer_print_height": "0.18",
+    "initial_layer_speed": "25",
+    "layer_height": "0.1",
+    "max_bridge_length": "20",
+    "name": "Large detailed 0.25 nozzle",
+    "print_extruder_id": [
+        "1"
+    ],
+    "print_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "print_settings_id": "Large detailed 0.25 nozzle",
+    "seam_position": "nearest",
+    "sparse_infill_pattern": "adaptivecubic",
+    "support_base_pattern": "rectilinear",
+    "support_base_pattern_spacing": "15",
+    "support_bottom_interface_spacing": "3",
+    "support_bottom_z_distance": "0.1",
+    "support_interface_spacing": "0.3",
+    "support_object_xy_distance": "0.2",
+    "support_on_build_plate_only": "1",
+    "support_threshold_angle": "60",
+    "support_top_z_distance": "0.1",
+    "support_type": "tree(auto)",
+    "top_shell_layers": "6",
+    "version": "2.3.2.60",
+    "wall_loops": "5"
+}
